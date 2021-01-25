@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Sample Time Series Data — drinks • rsample</title>
+<title>Get the indices of the analysis set from the assessment set — default_complement • rsample</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -49,8 +49,8 @@
 
 
 
-<meta property="og:title" content="Sample Time Series Data — drinks" />
-<meta property="og:description" content="Sample Time Series Data" />
+<meta property="og:title" content="Get the indices of the analysis set from the assessment set — default_complement" />
+<meta property="og:description" content="Get the indices of the analysis set from the assessment set" />
 <meta property="og:image" content="https://rsample.tidymodels.org/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -156,23 +156,34 @@
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Sample Time Series Data</h1>
-    <small class="dont-index">Source: <a href='https://github.com/tidymodels/rsample/blob/master/R/data.R'><code>R/data.R</code></a></small>
-    <div class="hidden name"><code>drinks.Rd</code></div>
+    <h1>Get the indices of the analysis set from the assessment set</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidymodels/rsample/blob/master/R/complement.R'><code>R/complement.R</code></a></small>
+    <div class="hidden name"><code>default_complement.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>Sample Time Series Data</p>
+    <p>Get the indices of the analysis set from the assessment set</p>
     </div>
 
+    <pre class="usage"><span class='fu'>default_complement</span><span class='op'>(</span><span class='va'>ind</span>, <span class='va'>n</span><span class='op'>)</span></pre>
 
+    <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
+    <table class="ref-arguments">
+    <colgroup><col class="name" /><col class="desc" /></colgroup>
+    <tr>
+      <th>ind</th>
+      <td><p>A vector of integers for which rows of data belong in the
+assessment set.</p></td>
+    </tr>
+    <tr>
+      <th>n</th>
+      <td><p>A single integer for the total number of rows in the data set.</p></td>
+    </tr>
+    </table>
 
-    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
-    <p>Drink sales. The exact name of the series from FRED is:
-"Merchant Wholesalers, Except Manufacturers' Sales Branches and Offices
-Sales: Nondurable Goods: Beer, Wine, and Distilled Alcoholic Beverages Sales"</p>
-<p>These data are now in the <code>modeldata</code> package.</p>
+    <p>A named list of integer vectors.</p>
 
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

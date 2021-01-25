@@ -22,7 +22,13 @@
     <loc>https://rsample.tidymodels.org/reference/complement.html</loc>
   </url>
   <url>
+    <loc>https://rsample.tidymodels.org/reference/default_complement.html</loc>
+  </url>
+  <url>
     <loc>https://rsample.tidymodels.org/reference/drinks.html</loc>
+  </url>
+  <url>
+    <loc>https://rsample.tidymodels.org/reference/fingerprint.html</loc>
   </url>
   <url>
     <loc>https://rsample.tidymodels.org/reference/form_pred.html</loc>
@@ -65,6 +71,9 @@
   </url>
   <url>
     <loc>https://rsample.tidymodels.org/reference/new_rset.html</loc>
+  </url>
+  <url>
+    <loc>https://rsample.tidymodels.org/reference/permutations.html</loc>
   </url>
   <url>
     <loc>https://rsample.tidymodels.org/reference/populate.html</loc>

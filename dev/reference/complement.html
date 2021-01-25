@@ -50,10 +50,8 @@
 
 
 <meta property="og:title" content="Determine the Assessment Samples — complement" />
-<meta property="og:description" content="Given an rsplit object, complement will determine which
-of the data rows are contained in the assessment set. To save space,
-many of the rset objects will not contain indices for the
-assessment split." />
+<meta property="og:description" content="This method and function help find which data belong in the analysis and
+assessment sets." />
 <meta property="og:image" content="https://rsample.tidymodels.org/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -142,7 +140,7 @@ assessment split." />
 </li>
         <li>
   <a href="https://github.com/tidymodels/rsample/">
-    <span class="fab fa fab fa-github fa-lg"></span>
+    <span class="fab fa-github fa-lg"></span>
      
   </a>
 </li>
@@ -165,13 +163,13 @@ assessment split." />
     </div>
 
     <div class="ref-description">
-    <p>Given an <code>rsplit</code> object, <code>complement</code> will determine which
-of the data rows are contained in the assessment set. To save space,
-many of the <code>rset</code> objects will not contain indices for the
-assessment split.</p>
+    <p>This method and function help find which data belong in the analysis and
+assessment sets.</p>
     </div>
 
-    <pre class="usage"><span class='fu'>complement</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+    <pre class="usage"><span class='fu'>complement</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span>
+
+<span class='fu'>rsplit_complement</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
@@ -189,6 +187,16 @@ assessment split.</p>
     <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
 
     <p>A integer vector.</p>
+    <h2 class="hasAnchor" id="details"><a class="anchor" href="#details"></a>Details</h2>
+
+    <p>Given an <code>rsplit</code> object, <code>complement()</code> will determine which
+of the data rows are contained in the assessment set. To save space,
+many of the <code>rset</code> objects will not contain indices for the
+assessment split.</p>
+<p><code>rsplit_complement()</code> handles the determination for sets for most resampling
+methods. Unless the row indices for the assessment set are already
+determined, this function selects all of the rows that are not in the
+analysis set and returns those as the assessment set.</p>
     <h2 class="hasAnchor" id="see-also"><a class="anchor" href="#see-also"></a>See also</h2>
 
     <div class='dont-index'><p><code><a href='populate.html'>populate()</a></code></p></div>
