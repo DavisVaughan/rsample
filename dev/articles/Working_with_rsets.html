@@ -51,7 +51,7 @@
         <a class="navbar-brand" href="../index.html">rsample</a>
         <div class="info hidden-xs hidden-sm">
           <span class="partof">part of <a href="https://tidymodels.org">tidymodels</a></span>
-          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.8.9000</span>
+          <span class="version version-danger" data-toggle="tooltip" data-placement="bottom" title="In-development version">0.0.9.9000</span>
         </div>
       </div>
     </div>
@@ -342,7 +342,7 @@
 <div class="sourceCode" id="cb16"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="va">first_resample</span> <span class="op">&lt;-</span> <span class="va">bt_resamples</span><span class="op">$</span><span class="va">splits</span><span class="op">[[</span><span class="fl">1</span><span class="op">]</span><span class="op">]</span>
 <span class="fu"><a href="https://rdrr.io/r/base/class.html">class</a></span><span class="op">(</span><span class="va">first_resample</span><span class="op">)</span>
-<span class="co">#&gt; [1] "rsplit"     "boot_split"</span>
+<span class="co">#&gt; [1] "boot_split" "rsplit"</span>
 <span class="fu"><a href="https://generics.r-lib.org/reference/tidy.html">tidy</a></span><span class="op">(</span><span class="va">first_resample</span><span class="op">)</span>
 <span class="co">#&gt; # A tibble: 1,470 x 2</span>
 <span class="co">#&gt;      Row Data    </span>
@@ -396,7 +396,7 @@
 
 <div class="author">
   <p>
-    Developed by Max Kuhn, Fanny Chow, <a href="http://hadley.nz">Hadley Wickham</a>.
+    Developed by Julia Silge, Fanny Chow, Max Kuhn, <a href="http://hadley.nz">Hadley Wickham</a>.
     Site built by <a href="https://pkgdown.r-lib.org">pkgdown</a>.
   </p>
 </div>

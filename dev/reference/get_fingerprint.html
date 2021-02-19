@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Convert an rsplit object to a data frame — as.data.frame.rsplit • rsample</title>
+<title>Obtain a identifier for the resamples — .get_fingerprint • rsample</title>
 
 <!-- favicons -->
 <link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
@@ -49,11 +49,10 @@
 
 
 
-<meta property="og:title" content="Convert an rsplit object to a data frame — as.data.frame.rsplit" />
-<meta property="og:description" content="The analysis or assessment code can be returned as a data
-frame (as dictated by the data argument) using
-as.data.frame.rsplit. analysis and
-assessment are shortcuts." />
+<meta property="og:title" content="Obtain a identifier for the resamples — .get_fingerprint" />
+<meta property="og:description" content="This function returns a hash (or NA) for an attribute that is created when
+the rset was initially constructed. This can be used to compare with other
+resampling objects to see if they are the same." />
 <meta property="og:image" content="https://rsample.tidymodels.org/logo.png" />
 <meta name="twitter:card" content="summary" />
 
@@ -159,59 +158,56 @@ assessment are shortcuts." />
 <div class="row">
   <div class="col-md-9 contents">
     <div class="page-header">
-    <h1>Convert an <code>rsplit</code> object to a data frame</h1>
-    <small class="dont-index">Source: <a href='https://github.com/tidymodels/rsample/blob/master/R/rsplit.R'><code>R/rsplit.R</code></a></small>
-    <div class="hidden name"><code>as.data.frame.rsplit.Rd</code></div>
+    <h1>Obtain a identifier for the resamples</h1>
+    <small class="dont-index">Source: <a href='https://github.com/tidymodels/rsample/blob/master/R/misc.R'><code>R/misc.R</code></a></small>
+    <div class="hidden name"><code>get_fingerprint.Rd</code></div>
     </div>
 
     <div class="ref-description">
-    <p>The analysis or assessment code can be returned as a data
-frame (as dictated by the <code>data</code> argument) using
-<code>as.data.frame.rsplit</code>. <code>analysis</code> and
-<code>assessment</code> are shortcuts.</p>
+    <p>This function returns a hash (or NA) for an attribute that is created when
+the <code>rset</code> was initially constructed. This can be used to compare with other
+resampling objects to see if they are the same.</p>
     </div>
 
-    <pre class="usage"><span class='co'># S3 method for rsplit</span>
-<span class='fu'><a href='https://rdrr.io/r/base/as.data.frame.html'>as.data.frame</a></span><span class='op'>(</span><span class='va'>x</span>, row.names <span class='op'>=</span> <span class='cn'>NULL</span>, optional <span class='op'>=</span> <span class='cn'>FALSE</span>, data <span class='op'>=</span> <span class='st'>"analysis"</span>, <span class='va'>...</span><span class='op'>)</span>
+    <pre class="usage"><span class='fu'>.get_fingerprint</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'>analysis</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span>
+<span class='co'># S3 method for default</span>
+<span class='fu'>.get_fingerprint</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span>
 
-<span class='fu'>assessment</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span></pre>
+<span class='co'># S3 method for rset</span>
+<span class='fu'>.get_fingerprint</span><span class='op'>(</span><span class='va'>x</span>, <span class='va'>...</span><span class='op'>)</span></pre>
 
     <h2 class="hasAnchor" id="arguments"><a class="anchor" href="#arguments"></a>Arguments</h2>
     <table class="ref-arguments">
     <colgroup><col class="name" /><col class="desc" /></colgroup>
     <tr>
       <th>x</th>
-      <td><p>An <code>rsplit</code> object.</p></td>
-    </tr>
-    <tr>
-      <th>row.names</th>
-      <td><p><code>NULL</code> or a character vector giving the row names for the data frame. Missing values are not allowed.</p></td>
-    </tr>
-    <tr>
-      <th>optional</th>
-      <td><p>A logical: should the column names of the data be checked for legality?</p></td>
-    </tr>
-    <tr>
-      <th>data</th>
-      <td><p>Either "analysis" or "assessment" to specify which data are returned.</p></td>
+      <td><p>An <code>rset</code> or <code>tune_results</code> object.</p></td>
     </tr>
     <tr>
       <th>...</th>
-      <td><p>Additional arguments to be passed to or from methods. Not currently used.</p></td>
+      <td><p>Not currently used.</p></td>
     </tr>
     </table>
 
+    <h2 class="hasAnchor" id="value"><a class="anchor" href="#value"></a>Value</h2>
+
+    <p>A character value or <code>NA_character_</code> if the object was created prior
+to <code>rsample</code> version 0.1.0.</p>
 
     <h2 class="hasAnchor" id="examples"><a class="anchor" href="#examples"></a>Examples</h2>
-    <pre class="examples"><div class='input'><span class='kw'><a href='https://rdrr.io/r/base/library.html'>library</a></span><span class='op'>(</span><span class='va'><a href='https://dplyr.tidyverse.org'>dplyr</a></span><span class='op'>)</span>
-<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>104</span><span class='op'>)</span>
-<span class='va'>folds</span> <span class='op'>&lt;-</span> <span class='fu'><a href='vfold_cv.html'>vfold_cv</a></span><span class='op'>(</span><span class='va'>mtcars</span><span class='op'>)</span>
-
-<span class='va'>model_data_1</span> <span class='op'>&lt;-</span> <span class='va'>folds</span><span class='op'>$</span><span class='va'>splits</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span> <span class='op'>%&gt;%</span> <span class='fu'>analysis</span><span class='op'>(</span><span class='op'>)</span>
-<span class='va'>holdout_data_1</span> <span class='op'>&lt;-</span> <span class='va'>folds</span><span class='op'>$</span><span class='va'>splits</span><span class='op'>[[</span><span class='fl'>1</span><span class='op'>]</span><span class='op'>]</span> <span class='op'>%&gt;%</span> <span class='fu'>assessment</span><span class='op'>(</span><span class='op'>)</span>
-</div></pre>
+    <pre class="examples"><div class='input'><span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span>
+<span class='fu'>.get_fingerprint</span><span class='op'>(</span><span class='fu'><a href='vfold_cv.html'>vfold_cv</a></span><span class='op'>(</span><span class='va'>mtcars</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "07cbecb64d2cb81754bec72883f752f9"</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span>
+<span class='fu'>.get_fingerprint</span><span class='op'>(</span><span class='fu'><a href='vfold_cv.html'>vfold_cv</a></span><span class='op'>(</span><span class='va'>mtcars</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "07cbecb64d2cb81754bec72883f752f9"</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>2</span><span class='op'>)</span>
+<span class='fu'>.get_fingerprint</span><span class='op'>(</span><span class='fu'><a href='vfold_cv.html'>vfold_cv</a></span><span class='op'>(</span><span class='va'>mtcars</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "1a882b99451cb9dca9655ac01adcf23a"</div><div class='input'>
+<span class='fu'><a href='https://rdrr.io/r/base/Random.html'>set.seed</a></span><span class='op'>(</span><span class='fl'>1</span><span class='op'>)</span>
+<span class='fu'>.get_fingerprint</span><span class='op'>(</span><span class='fu'><a href='vfold_cv.html'>vfold_cv</a></span><span class='op'>(</span><span class='va'>mtcars</span>, repeats <span class='op'>=</span> <span class='fl'>2</span><span class='op'>)</span><span class='op'>)</span>
+</div><div class='output co'>#&gt; [1] "2db13a880a04fd3c170115f64b9b68d0"</div></pre>
   </div>
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <nav id="toc" data-toggle="toc" class="sticky-top">
